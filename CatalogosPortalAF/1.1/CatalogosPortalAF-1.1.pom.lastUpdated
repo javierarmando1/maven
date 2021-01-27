@@ -1,0 +1,13 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Jan 26 10:35:30 CST 2021
+b56a6f2bfb823da03b651c478a0a708a501586f2@10.57.167.4\:8080>@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1588119418570
+a887ac5219825857b87a70f8d3f546dde359aae6@10.50.8.20\:8080>default-http\://10.50.109.68/repo.maven/.lastUpdated=1536616873797
+ac10a5edbdc71e1391c78e57ee1df633c53891f4@10.57.167.4\:8080>@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1598033379592
+http\://10.50.109.68/repo.maven/.error=Could not transfer artifact mx.com.gsalinas.portalAdministracionFinanzas\:CatalogosPortalAF\:pom\:1.1 from/to central (http\://10.50.109.68/repo.maven/)\: Transfer failed for http\://10.50.109.68/repo.maven/mx/com/gsalinas/portalAdministracionFinanzas/CatalogosPortalAF/1.1/CatalogosPortalAF-1.1.pom
+@default-central-http\://10.50.109.68/repo.maven/.lastUpdated=1611678664458
+default-http\://repo.maven.apache.org/maven2/.lastUpdated=1530638686911
+http\://repo.maven.apache.org/maven2/.error=Could not transfer artifact mx.com.gsalinas.portalAdministracionFinanzas\:CatalogosPortalAF\:pom\:1.1 from/to central (http\://repo.maven.apache.org/maven2)\: Failed to transfer file\: http\://repo.maven.apache.org/maven2/mx/com/gsalinas/portalAdministracionFinanzas/CatalogosPortalAF/1.1/CatalogosPortalAF-1.1.pom. Return code is\: 501 , ReasonPhrase\:HTTPS Required.
+https\://repo.maven.apache.org/maven2/.lastUpdated=1611678930699
+ac10a5edbdc71e1391c78e57ee1df633c53891f4@10.57.167.4\:8080>@default-central-http\://10.50.109.68/repo.maven/.lastUpdated=1598034077905
+https\://repo.maven.apache.org/maven2/.error=
+16f28955d3ce2b4802a52c7a44e764a12cc449f4@10.57.167.4\:8080>default-http\://repo.maven.apache.org/maven2/.lastUpdated=1579281731156
