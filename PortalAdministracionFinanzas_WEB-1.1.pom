@@ -1,0 +1,201 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>mx.com.gsalinas.contanet.portalAdministracionFinanzas</groupId>
+    <artifactId>PortalAdministracionFinanzas_WEB</artifactId>
+    <version>1.1</version>
+    <packaging>war</packaging>
+
+    <name>PortalAdministracionFinanzas_WEB</name>
+
+    <repositories>
+        <repository>
+            <id>repo_gs_nomratividad</id>
+            <name>Repositorio maven de Sistemas Normatividad.</name>
+            <url>http://10.50.109.68/repo.maven/</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <directorioSalida>
+            target/dist
+        </directorioSalida>
+        <directorioDeContruccion>
+            target/exploded
+        </directorioDeContruccion>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.3.8.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.csportisc</groupId>
+            <artifactId>Utils-java</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.4.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>CatalogosPortalAF</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-jexl3</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Apache Commons FileUpload --> 
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>initialize</id>
+                        <phase>initialize</phase>
+                        <configuration>
+                            <target>
+                                <property name="absolute.build.web.dir" location="${directorioDeContruccion}"/>
+                                <echo message="Deteniendo publicacion -> ${absolute.build.web.dir}"/>
+                                <delete file="${absolute.build.web.dir}/${artifactId}.war.dodeploy"/>
+                                <delete file="${absolute.build.web.dir}/${artifactId}.war.deployed"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>install</id>
+                        <phase>install</phase>
+                        <configuration>
+                            <target>
+                                <property name="absolute.build.web.dir" location="${directorioDeContruccion}"/>
+                                <property name="absolute.build.war.dir" location="${directorioSalida}"/>
+                                <echo message="Iniciando publicacion -> ${absolute.build.web.dir}"/>
+                                <delete file="${absolute.build.web.dir}/${artifactId}.war.undeployed" />
+                                <delete file="${absolute.build.web.dir}/${artifactId}.war.deployed" />
+                                <touch file="${absolute.build.web.dir}/${artifactId}.war.dodeploy"/>
+                                <echo message="Listo Exploded en: -> ${absolute.build.web.dir}"/>
+                                <echo message="Listo WAR en: -> ${absolute.build.war.dir}"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <warSourceExcludes>
+                        web_PortalAdministracionFinanzas/lib/jquery-validation-1.14.0/demo/**,
+                        web_PortalAdministracionFinanzas/lib/jquery-validation-1.14.0/test/**,
+                        web_PortalAdministracionFinanzas/lib/jquery-validation-1.14.0/lib/jquery*,
+                        web_PortalAdministracionFinanzas/lib/DataTables-1.10.9/examples/**,
+                        web_PortalAdministracionFinanzas/lib/DataTables-1.10.9/media/js/jquery.js,
+                        web_PortalAdministracionFinanzas/lib/jquery.mobile-1.4.5/demos/**,
+                        web_PortalAdministracionFinanzas/lib/**/*.html,
+                        web_PortalAdministracionFinanzas/lib/**/*.sh,
+                    </warSourceExcludes>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warName>${artifactId}</warName>
+                    <webappDirectory>${directorioDeContruccion}/${artifactId}.war</webappDirectory>
+                    <!--<webappDirectory>target/cert/PortalAdministracionFinanzas.ear</webappDirectory>-->
+                    <outputDirectory>${directorioSalida}</outputDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>6.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
