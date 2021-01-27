@@ -1,0 +1,11 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Jan 26 10:35:31 CST 2021
+b56a6f2bfb823da03b651c478a0a708a501586f2@10.57.167.4\:8080>@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1588119419741
+ac10a5edbdc71e1391c78e57ee1df633c53891f4@10.57.167.4\:8080>@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1598033380618
+http\://10.50.109.68/repo.maven/.error=Could not transfer artifact oracle\:ojdbc\:pom\:14 from/to central (http\://10.50.109.68/repo.maven/)\: Transfer failed for http\://10.50.109.68/repo.maven/oracle/ojdbc/14/ojdbc-14.pom
+@default-central-http\://10.50.109.68/repo.maven/.lastUpdated=1611678685782
+http\://repo.maven.apache.org/maven2/.error=Could not transfer artifact oracle\:ojdbc\:pom\:14 from/to central (http\://repo.maven.apache.org/maven2)\: Failed to transfer file\: http\://repo.maven.apache.org/maven2/oracle/ojdbc/14/ojdbc-14.pom. Return code is\: 501 , ReasonPhrase\:HTTPS Required.
+https\://repo.maven.apache.org/maven2/.lastUpdated=1611678931108
+https\://repo.maven.apache.org/maven2/.error=
+ac10a5edbdc71e1391c78e57ee1df633c53891f4@10.57.167.4\:8080>@default-central-http\://10.50.109.68/repo.maven/.lastUpdated=1598034208970
+16f28955d3ce2b4802a52c7a44e764a12cc449f4@10.57.167.4\:8080>default-http\://repo.maven.apache.org/maven2/.lastUpdated=1579281733258
